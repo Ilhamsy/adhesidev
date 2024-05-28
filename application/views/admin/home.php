@@ -1,23 +1,17 @@
 <?php
- if($this->session->userdata('level') == "user" ){
+$userLevel = $this->session->userdata('level');
 
- ?>
-<div class="container"><?= $this->session->flashdata('pesan'); ?></div>
-<br /><br /><br />
+if ($userLevel === "user" || $userLevel === "admin") {
+    ?>
+    <div class="container"><?= $this->session->flashdata('pesan'); ?></div>
 
-
-             
-             
-            
-
-<?php }elseif($this->session->userdata('level') == "admin"){ ?>
-
-<div class="container"><?= $this->session->flashdata('pesan'); ?></div>
-
-<div class="callout callout-success">
-                <h4><i class=""></i><center>Selamat Datang</center> </h4>
-                <marquee width="1220">Anda Login Sebagai Admin Silahkan Pilih Menu Di Samping Untuk Menggunakan Sistem</marquee>
-              </div>
-
-
-<?php }
+    <?php if ($userLevel === "admin") { ?>
+        <div class="callout callout-success">
+            <h4><i class="fas fa-smile"></i><center>Selamat Datang</center></h4>
+            <p>Anda Login Sebagai Admin. Silahkan pilih menu di samping untuk menggunakan sistem.</p>
+        </div>
+    <?php } ?>
+<?php } else { ?>
+    <!-- Display an error message or redirect to a login page if the user level is invalid -->
+    <p>Invalid user level.</p>
+<?php } ?>
