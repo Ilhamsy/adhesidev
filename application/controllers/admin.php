@@ -152,17 +152,17 @@ class Admin extends CI_controller
   }
 
 
-  public function ls_pegawai($value = '')
+  public function ls_siswa($value = '')
   {
-    $data = $this->m_admin->pegawai()->row_array();
+    $data = $this->m_admin->siswa()->row_array();
     echo json_encode($data);
   }
 
-  public function pegawai_tambah()
+  public function siswa_tambah()
   {
 
     $x = array(
-      'judul' => 'Tambah Data Student',
+      'judul' => 'Tambah Data Siswa',
       'aksi'            => 'tambah',
       'nama'            => '',
       'jenis_kelamin'   => '',
@@ -173,12 +173,12 @@ class Admin extends CI_controller
       'university'      => '',
       'nilai'           => '',
       'toefl'           => '',
-      'no_tlp'          => ''
+      'telepon'          => ''
     );
 
     if (isset($_POST['kirim'])) {
       $SQLinsert = array(
-        'id_pegawai' => $this->input->post('id_pegawai'),
+        'id_siswa' => $this->input->post('id_siswa'),
         'nama' => $this->input->post('nama'),
         'jenis_kelamin' => $this->input->post('jenis_kelamin'),
         'alamat' => $this->input->post('alamat'),
@@ -188,10 +188,10 @@ class Admin extends CI_controller
         'university' => $this->input->post('university'),
         'nilai' => $this->input->post('nilai'),
         'toefl' => $this->input->post('toefl'),
-        'no_tlp' => $this->input->post('no_tlp')
+        'telepon' => $this->input->post('telepon')
       );
 
-      $cek = $this->db->insert('pegawai', $SQLinsert);
+      $cek = $this->db->insert('siswa', $SQLinsert);
       if ($cek) {
         $pesan = '<div class="alert alert-success alert-dismissible">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -199,21 +199,21 @@ class Admin extends CI_controller
                        Data Berhasil Di Tambahkan.
                       </div>';
         $this->session->set_flashdata('pesan', $pesan);
-        redirect(base_url('admin/pegawai'));
+        redirect(base_url('admin/siswa'));
       } else {
         echo "QUERY SQL ERROR";
       }
     } else {
-      tpl('admin/pegawai_form', $x);
+      tpl('admin/siswa_form', $x);
     }
   }
 
-  public function pegawai_edit($id = '')
+  public function siswa_edit($id = '')
   {
-    $data = $this->db->get_where('pegawai', array('id_pegawai' => $id))->row_array();
+    $data = $this->db->get_where('siswa', array('id_siswa' => $id))->row_array();
     $x = array(
       'aksi' => 'edit',
-      'judul' => 'Edit Data Student',
+      'judul' => 'Edit Data Siswa',
       'nama' => $data['nama'],
       'jenis_kelamin' => $data['jenis_kelamin'],
       'alamat' => $data['alamat'],
@@ -223,7 +223,7 @@ class Admin extends CI_controller
       'university' => $data['university'],
       'nilai' => $data['nilai'],
       'toefl' => $data['toefl'],
-      'no_tlp' => $data['no_tlp']
+      'telepon' => $data['telepon']
     );
     if (isset($_POST['kirim'])) {
       $SQLinsert = array(
@@ -236,20 +236,20 @@ class Admin extends CI_controller
         'university' => $this->input->post('university'),
         'nilai' => $this->input->post('nilai'),
         'toefl' => $this->input->post('toefl'),
-        'no_tlp' => $this->input->post('no_tlp')
+        'telepon' => $this->input->post('telepon')
       );
 
-      $this->db->update('pegawai', $SQLinsert, array('id_pegawai' => $id));
+      $this->db->update('siswa', $SQLinsert, array('id_siswa' => $id));
       $pesan = '<div class="alert alert-success alert-dismissible">
                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                       <h4><i class="icon fa fa-check"></i> Success!</h4>
                      Data Berhasil Di Edit.
                     </div>';
       $this->session->set_flashdata('pesan', $pesan);
-      redirect(base_url('admin/pegawai'));
+      redirect(base_url('admin/siswa'));
 
       $SQLinsert = array(
-        'id_pegawai' => $this->input->post('id_pegawai'),
+        'id_siswa' => $this->input->post('id_siswa'),
         'nama' => $this->input->post('nama'),
         'jenis_kelamin' => $this->input->post('jenis_kelamin'),
         'alamat' => $this->input->post('alamat'),
@@ -259,10 +259,10 @@ class Admin extends CI_controller
         'university' => $this->input->post('university'),
         'nilai' => $this->input->post('nilai'),
         'toefl' => $this->input->post('toefl'),
-        'no_tlp' => $this->input->post('no_tlp')
+        'telepon' => $this->input->post('telepon')
         //'password'=>md5($this->input->post('password'))
       );
-      $cek = $this->db->update('pegawai', $SQLinsert, array('id_pegawai' => $id));
+      $cek = $this->db->update('siswa', $SQLinsert, array('id_siswa' => $id));
       if ($cek) {
         $pesan = '<div class="alert alert-success alert-dismissible">
                           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -270,25 +270,25 @@ class Admin extends CI_controller
                          Data Berhasil Di Edit.
                         </div>';
         $this->session->set_flashdata('pesan', $pesan);
-        redirect(base_url('admin/pegawai'));
+        redirect(base_url('admin/siswa'));
       } else {
         echo "QUERY SQL ERROR";
       }
     } else {
-      tpl('admin/pegawai_form', $x);
+      tpl('admin/siswa_form', $x);
     }
   }
 
 
-  public function pegawai_hapus($id = '')
+  public function siswa_hapus($id = '')
   {
-    $foto = $this->db->get_where('pegawai', array('id_pegawai' => $id))->row_array();
+    $foto = $this->db->get_where('siswa', array('id_siswa' => $id))->row_array();
     if ($foto['foto'] != "") {
       @unlink('template/data/' . $foto['foto']);
     } else {
     }
 
-    $cek = $this->db->delete('pegawai', array('id_pegawai' => $id));
+    $cek = $this->db->delete('siswa', array('id_siswa' => $id));
     if ($cek) {
       $pesan = '<div class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -296,7 +296,7 @@ class Admin extends CI_controller
                Data Berhasil Di Hapus.
               </div>';
       $this->session->set_flashdata('pesan', $pesan);
-      redirect(base_url('admin/pegawai'));
+      redirect(base_url('admin/siswa'));
     }
   }
 
