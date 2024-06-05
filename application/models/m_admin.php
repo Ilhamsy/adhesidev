@@ -16,13 +16,13 @@ class M_admin extends CI_model
 return $jadwal;
 }
 
-public function get_student($id_jabatan) {
+public function get_student($id_tentor) {
   $query = $this->db->select("*");
 
   $this->db->from('jadwal');
-  $this->db->join("pegawai", "pegawai.id_pegawai = jadwal.id_peg");
-  $this->db->join("jabatan", "jabatan.id_jabatan = jadwal.id_jab");
-  $this->db->where("jabatan.id_jabatan", $id_jabatan);
+  $this->db->join("siswa", "siswa.id_siswa = jadwal.id_sis");
+  $this->db->join("tentor", "tentor.id_tentor = jadwal.id_tent");
+  $this->db->where("tentor.id_tentor", $id_tentor);
 
   $jadwal_mentor = $this->db->get()->result_array();
   return $jadwal_mentor;
@@ -30,16 +30,16 @@ public function get_student($id_jabatan) {
 
 public function getName_mentor(){
   $query = $this->db->from('jadwal');
-  $this->db->join("jabatan", "jabatan.id_jabatan = jadwal.id_jab", 'right');
-  $this->db->group_by("jabatan.id_jabatan");
+  $this->db->join("tentor", "tentor.id_tentor = jadwal.id_tent", 'right');
+  $this->db->group_by("tentor.id_tentor");
   return $query->get()->result_array();
 
 }
 
 public function get_pegawai_join_jadwal(){
   $query = $this->db->from('jadwal');
-  $this->db->join("pegawai", "pegawai.id_pegawai = jadwal.id_peg", 'right');
-  $this->db->group_by("pegawai.id_pegawai");
+  $this->db->join("siswa", "siswa.id_siswa = jadwal.id_sis", 'right');
+  $this->db->group_by("siswa.id_siswa");
   return $query->get()->result_array();
 
 }

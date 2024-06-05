@@ -1,7 +1,4 @@
 <?php
-/*halaman login utama 
-
-author by Ismarianto Putra TEch Programer */
 
 class Login extends CI_controller
 {
@@ -53,10 +50,7 @@ class Login extends CI_controller
             'password'  => $DataPegawai['password'],
             'nama'      => $DataPegawai['nama'],
             'level'     => $DataPegawai['level'],
-              );        
-
-
-      
+              );
 
       }else{
         echo '
