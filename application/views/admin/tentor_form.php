@@ -3,7 +3,7 @@
         <tr>
             <th>Nama Tentor</th>
             <td>
-                <input type="text" name="nama" class="form-control" value="<?php echo $nama; ?>" required>
+                <input type="text" name="nama_tentor" class="form-control" value="<?php echo $nama_tentor; ?>" required>
             </td>
         </tr>
         <tr>

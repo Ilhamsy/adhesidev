@@ -129,7 +129,7 @@
 
             <li class="treeview">
               <a href="">
-                <i class="fa fa-address-book-o"></i> <span>Daftar Mentor</span>
+                <i class="fa fa-address-book-o"></i> <span>Data Tentor</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                   <script></script>
@@ -142,7 +142,7 @@
 
             <li class="treeview">
               <a href="">
-                <i class="fa fa-id-card-o"></i> <span>Daftar Student</span>
+                <i class="fa fa-id-card-o"></i> <span>Data Siswa</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>

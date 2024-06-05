@@ -1,53 +1,55 @@
-<a href="<?php echo base_url('admin/jadwal_tambah/');?>" class="btn btn-primary">Tambah</a>
+<a href="<?php echo base_url('admin/jadwal_tambah/'); ?>" class="btn btn-primary">Tambah</a>
 <br /><br /><br />
-<?php echo $this->session->flashdata('pesan');?>
+<?php echo $this->session->flashdata('pesan'); ?>
 <table id="example1" class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>No</th>
-            <th>Mentor</th>
-            <th>Student</th>
+            <th>Tentor</th>
+            <th>Siswa</th>
             <th>Jadwal</th>
-            <th>Course Taken</th>
+            <th>Kursus Yang Diambil</th>
             <th>Aksi</th>
         </tr>
     </thead>
     <tbody>
-        <?php $no = 1; foreach ($data as $admin) :?>
-            <?php $tgl = $admin['jam'];?>
+        <?php $no = 1;
+        foreach ($data as $admin) : ?>
+            <?php $tgl = $admin['jam']; ?>
             <tr>
-                <td><?php echo $no;?></td>
+                <td><?php echo $no; ?></td>
                 <td>
                     <div>
-                        <a href="<?php echo base_url('admin/jadwal_mentor/'. $admin['id_jabatan']);?>" class="btn btn-primary">
-                            <?php echo $admin['nama_jabatan'];?>
+                        <a href="<?php echo base_url('admin/jadwal_tentor/' . $admin['id_tentor']); ?>" class="btn btn-primary">
+                            <?php echo $admin['nama_tentor']; ?>
                         </a>
                     </div>
                 </td>
                 <td>
                     <div id='isi1'>
-                        <?php echo $admin['nama'];?>
+                        <?php echo $admin['nama']; ?>
                     </div>
                 </td>
                 <td>
                     <div id='isi2'>
-                        <?php echo date("d-m-Y, h:i A", strtotime($tgl));?>
+                        <?php echo date("d-m-Y, h:i A", strtotime($tgl)); ?>
                     </div>
                 </td>
                 <td>
                     <div id='isi3'>
-                        <?php echo $admin['bidang'];?>
+                        <?php echo $admin['bidang']; ?>
                     </div>
                 </td>
 
                 <td>
                     <div id='isi4'>
-                        <a href="<?php echo base_url('admin/jadwal_edit/'. $admin['id_jadwal']);?>" class="btn btn-info">Edit</a>
-                        <a href="<?php echo base_url('admin/jadwal_hapus/'. $admin['id_jadwal']);?>" class="btn btn-danger">Hapus</a>
+                        <a href="<?php echo base_url('admin/jadwal_edit/' . $admin['id_jadwal']); ?>" class="btn btn-info">Edit</a>
+                        <a href="<?php echo base_url('admin/jadwal_hapus/' . $admin['id_jadwal']); ?>" class="btn btn-danger">Hapus</a>
                     </div>
                 </td>
             </tr>
-            <?php $no++; endforeach;?>
+        <?php $no++;
+        endforeach; ?>
     </tbody>
 </table>
 

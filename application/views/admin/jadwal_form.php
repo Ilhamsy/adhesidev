@@ -3,10 +3,10 @@
         <tr>
             <th>Mentor</th>
             <td>
-                <select class="form-control" name="nama_jabatan" required>
-                    <?php foreach ($nama_jabatan as $row) : ?>
-                        <option value="<?php echo $row['id_jabatan']; ?>"><?php echo $row['nama_jabatan']; ?></option>
-                    <?php endforeach; ?>              
+                <select class="form-control" name="nama_tentor" required>
+                    <?php foreach ($nama_tentor as $row) : ?>
+                        <option value="<?php echo $row['id_tentor']; ?>"><?php echo $row['nama_tentor']; ?></option>
+                    <?php endforeach; ?>
                 </select>
             </td>
         </tr>
@@ -15,8 +15,8 @@
             <td>
                 <select class="form-control" name="nama" required>
                     <?php foreach ($nama as $row) : ?>
-                        <option value="<?php echo $row['id_pegawai']; ?>"><?php echo $row['nama']; ?></option>
-                    <?php endforeach; ?>          
+                        <option value="<?php echo $row['id_siswa']; ?>"><?php echo $row['nama']; ?></option>
+                    <?php endforeach; ?>
                 </select>
             </td>
         </tr>
@@ -25,7 +25,7 @@
             <td><input type="datetime-local" name="jam" class="form-control" value="<?php echo $jam; ?>" required></td>
         </tr>
         <tr>
-            <th>Bidang Mentor</th>
+            <th>Kursus Yang Diambil</th>
             <td><input type="text" name="bidang" class="form-control" value="<?php echo $bidang; ?>" required></td>
         </tr>
 
@@ -37,12 +37,12 @@
 </table>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
             events: [],
-            selectOverlap: function (event) {
+            selectOverlap: function(event) {
                 return event.rendering === 'background';
             }
         });

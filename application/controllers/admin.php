@@ -53,7 +53,7 @@ class Admin extends CI_controller
     $x = array(
       'judul'          => 'Tambah Data Tentor',
       'aksi'          => 'tambah',
-      'nama'  => '',
+      'nama_tentor'  => '',
       'email'         => '',
       'alamat'      => '',
       'jml_siswa' => '',
@@ -63,7 +63,7 @@ class Admin extends CI_controller
     );
     if (isset($_POST['kirim'])) {
       $inputData = array(
-        'nama'  => $this->input->post('nama'),
+        'nama_tentor'  => $this->input->post('nama_tentor'),
         'email'         => $this->input->post('email'),
         'alamat'      => $this->input->post('alamat'),
         'jml_siswa' => $this->input->post('jml_siswa'),
@@ -93,7 +93,7 @@ class Admin extends CI_controller
     $x = array(
       'judul'        => 'Edit Data Mentor',
       'aksi'        => 'tambah',
-      'nama'      => $sql['nama'],
+      'nama_tentor'      => $sql['nama_tentor'],
       'email'             => $sql['email'],
       'alamat'          => $sql['alamat'],
       'jml_siswa'    => $sql['jml_siswa'],
@@ -103,7 +103,7 @@ class Admin extends CI_controller
     );
     if (isset($_POST['kirim'])) {
       $inputData = array(
-        'nama'      => $this->input->post('nama'),
+        'nama_tentor'      => $this->input->post('nama_tentor'),
         'email'             => $this->input->post('email'),
         'alamat'          => $this->input->post('alamat'),
         'jml_siswa'    => $this->input->post('jml_siswa'),
@@ -303,24 +303,24 @@ class Admin extends CI_controller
 
   //bagian absensi  
 
-  public function cari_pegawai()
-  {
-    if ($this->session->userdata('level') == "pegawai") {
+  // public function cari_pegawai()
+  // {
+  //   if ($this->session->userdata('level') == "pegawai") {
 
-      $id = $this->session->userdata('id_pegawai');
-      $x['pegawai'] = $this->db->get_where('pegawai', array('id_pegawai' => $id));
-      $this->load->view('admin/data_pegawai', $x);
-    } elseif ($this->session->userdata('level') == "admin") {
+  //     $id = $this->session->userdata('id_pegawai');
+  //     $x['pegawai'] = $this->db->get_where('pegawai', array('id_pegawai' => $id));
+  //     $this->load->view('admin/data_pegawai', $x);
+  //   } elseif ($this->session->userdata('level') == "admin") {
 
-      $id = $this->input->post('cari_p');
-      $x['pegawai'] = $this->db->get_where('pegawai', array('id_pegawai' => $id));
-      $this->load->view('admin/data_pegawai', $x);
-    } elseif ($this->session->userdata('level') == "user") {
-      $id = $this->input->post('cari_p');
-      $x['pegawai'] = $this->db->get_where('pegawai', array('id_pegawai' => $id));
-      $this->load->view('admin/data_pegawai', $x);
-    }
-  }
+  //     $id = $this->input->post('cari_p');
+  //     $x['pegawai'] = $this->db->get_where('pegawai', array('id_pegawai' => $id));
+  //     $this->load->view('admin/data_pegawai', $x);
+  //   } elseif ($this->session->userdata('level') == "user") {
+  //     $id = $this->input->post('cari_p');
+  //     $x['pegawai'] = $this->db->get_where('pegawai', array('id_pegawai' => $id));
+  //     $this->load->view('admin/data_pegawai', $x);
+  //   }
+  // }
 
 
   //bagian Login Administrais User..
@@ -454,11 +454,11 @@ class Admin extends CI_controller
     tpl('admin/jadwal', $x);
   }
 
-  public function jadwal_mentor($id = '')
+  public function jadwal_tentor($id = '')
   {
-    $x = array('judul' => 'Jadwal Mentor', 'data' => $this->m_admin->get_student($id));
+    $x = array('judul' => 'Jadwal Tentor', 'data' => $this->m_admin->get_student($id));
     // panggil view
-    tpl('admin/jadwal_mentor', $x);
+    tpl('admin/jadwal_tentor', $x);
   }
 
   public function jadwal_tambah()
@@ -479,12 +479,12 @@ class Admin extends CI_controller
         'bidang'       => $this->input->post('bidang')
       );
 
-      $pegawai = $this->db->get_where('pegawai', array('id_pegawai' => $inputData["nama"]))->row();
+      $siswa = $this->db->get_where('siswa', array('id_siswa' => $inputData["nama"]))->row();
       //$pegawai = $this->db->where(orderby('nama_jabatan'))->row();
-      $jabatan = $this->db->get_where('jabatan', array('id_jabatan' => $inputData["nama_jabatan"]))->row();
-      print_r($pegawai, "pegawai");
-      $jadwal["id_peg"] = $pegawai->id_pegawai;
-      $jadwal["id_jab"] = $jabatan->id_jabatan;
+      $tentor = $this->db->get_where('tentor', array('id_tentor' => $inputData["nama_tentor"]))->row();
+      print_r($siswa, "siswa");
+      $jadwal["id_sis"] = $siswa->id_siswa;
+      $jadwal["id_tent"] = $tentor->id_tentor;
       $jadwal["jam"]    = $inputData["jam"];
       $jadwal["bidang"] = $inputData["bidang"];
       $cek = $this->db->insert("jadwal", $jadwal);
@@ -503,8 +503,8 @@ class Admin extends CI_controller
       $x = array(
         'judul'          => 'Tambah Jadwal Bimbingan',
         'aksi'          => 'tambah',
-        'nama'          => $this->m_admin->get_pegawai_join_jadwal(),
-        'nama_jabatan'  => $this->m_admin->getName_mentor(),
+        'nama'          => $this->m_admin->get_siswa_join_jadwal(),
+        'nama_tentor'  => $this->m_admin->getName_mentor(),
         'jam'           => "",
         'bidang'        => "",
       );
@@ -516,31 +516,31 @@ class Admin extends CI_controller
   {
     $sql = $this->db->select('*');
     $sql = $this->db->from('jadwal');
-    $sql = $this->db->join('jabatan', 'jabatan.id_jabatan=jadwal.id_jab');
-    $sql = $this->db->join('pegawai', 'pegawai.id_pegawai=jadwal.id_peg');
+    $sql = $this->db->join('tentor', 'tentor.id_tentor=jadwal.id_tent');
+    $sql = $this->db->join('siswa', 'siswa.id_siswa=jadwal.id_sis');
     $sql = $this->db->where('jadwal.id_jadwal', $id);
     $sql = $this->db->get()->row_array();
     $x = array(
       'judul'          => 'Edit Jadwal Bimbingan',
       'aksi'          => 'edit',
       'nama'          => $sql['nama'],
-      'nama_jabatan'  => $sql['nama_jabatan'],
+      'nama_tentor'  => $sql['nama_tentor'],
       'jam'           => $sql['jam'],
       'bidang'        => $sql['bidang']
     );
     if (isset($_POST['kirim'])) {
       $inputData = array(
         'nama'          => $this->input->post('nama'),
-        'nama_jabatan'  => $this->input->post('nama_jabatan'),
+        'nama_tentor'  => $this->input->post('nama_tentor'),
         'jam'           => $this->input->post('jam'),
         'bidang'        => $this->input->post('bidang')
       );
 
-      $pegawai = $this->db->get_where('pegawai', array('id_pegawai' => $inputData["nama"]))->row();
-      $jabatan = $this->db->get_where('jabatan', array('id_jabatan' => $inputData["nama_jabatan"]))->row();
-      print_r($pegawai);
-      $jadwal["id_peg"] = $pegawai->id_pegawai;
-      $jadwal["id_jab"] = $jabatan->id_jabatan;
+      $siswa = $this->db->get_where('siswa', array('id_siswa' => $inputData["nama"]))->row();
+      $tentor = $this->db->get_where('tentor', array('id_tentor' => $inputData["nama_tentor"]))->row();
+      print_r($siswa);
+      $jadwal["id_sis"] = $siswa->id_siswa;
+      $jadwal["id_tent"] = $tentor->id_tentor;
       $jadwal["jam"] = $inputData["jam"];
       $jadwal["bidang"] = $inputData["bidang"];
       $this->db->where('id_jadwal', $id);
@@ -560,7 +560,7 @@ class Admin extends CI_controller
       $x = array(
         'judul'         => 'Edit Jadwal Bimbingan',
         'aksi'          => 'edit',
-        'nama'          => $this->m_admin->get_pegawai_join_jadwal(),
+        'nama'          => $this->m_admin->get_siswa_join_jadwal(),
         'nama_jabatan'  => $this->m_admin->getName_mentor(),
         'jam'           => "",
         'bidang'        => "",

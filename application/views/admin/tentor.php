@@ -20,7 +20,7 @@
         foreach ($data as $admin) : ?>
             <tr>
                 <td><?php echo $no; ?></td>
-                <td><?php echo $admin['nama']; ?></td>
+                <td><?php echo $admin['nama_tentor']; ?></td>
                 <td><?php echo $admin['email']; ?></td>
                 <td><?php echo $admin['alamat']; ?></td>
                 <td><?php echo $admin['jml_siswa']; ?></td>
