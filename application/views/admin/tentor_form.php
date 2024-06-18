@@ -39,9 +39,9 @@
         <tr>
             <th>Status</th>
             <td>
-                <select class="form-control" name="Status" required>
-                    <option value="A" <?php echo ($status == 'A') ? 'elected' : ''; ?>>Active</option>
-                    <option value="NA" <?php echo ($status == 'NA') ? 'elected' : ''; ?>>Non Active</option>
+                <select class="form-control" name="status" required>
+                    <option value=<?php echo ($status == 1) ? '1' : '0'; ?> <?php echo ($status == 1) ? 'selected' : ''; ?>>Active</option>
+                    <option value=<?php echo ($status == 0) ? '0' : '1'; ?> <?php echo ($status == 0) ? 'selected' : ''; ?>>Non Active</option>
                 </select>
             </td>
         </tr>

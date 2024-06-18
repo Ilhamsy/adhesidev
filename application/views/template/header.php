@@ -136,7 +136,7 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?= base_url('admin/tentor') ?>"><i class="fa fa-circle-o"></i>Data Mentor</a></li>
+                <li><a href="<?= base_url('admin/tentor') ?>"><i class="fa fa-circle-o"></i>Data Tentor</a></li>
               </ul>
             </li>
 
@@ -148,7 +148,7 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?= base_url('admin/siswa') ?>" class="active"><i class="fa fa-circle-o"></i>Data Student</a></li>
+                <li><a href="<?= base_url('admin/siswa') ?>" class="active"><i class="fa fa-circle-o"></i>Data Siswa</a></li>
               </ul>
             </li>
 

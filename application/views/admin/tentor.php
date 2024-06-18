@@ -26,7 +26,7 @@
                 <td><?php echo $admin['jml_siswa']; ?></td>
                 <td><?php echo $admin['telepon']; ?></td>
                 <td><?php echo $admin['bidang']; ?></td>
-                <td><?php echo ($admin['status'] == "A") ? "Active" : "Non Active"; ?></td>
+                <td><?php echo ($admin['status'] = 1) ? "Active" : "Non Active"; ?></td>
                 <td>
                     <a href="<?php echo base_url('admin/tentor_edit/' . $admin['id_tentor']); ?>" class="btn btn-info">Edit</a>
                     <a href="<?php echo base_url('admin/tentor_hapus/' . $admin['id_tentor']); ?>" class="btn btn-danger">Hapus</a>

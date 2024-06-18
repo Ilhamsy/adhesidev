@@ -466,15 +466,15 @@ class Admin extends CI_controller
     $x = array(
       'judul'          => 'Tambah Jadwal Bimbingan',
       'aksi'          => 'tambah',
-      'nama'          => "",
-      'nama_jabatan'  => "",
+      'nama_tentor'          => "",
+      'nama'  => "",
       'jam'           => "",
       'bidang'        => "",
     );
     if (isset($_POST['kirim'])) {
       $inputData = array(
-        'nama'         => $this->input->post('nama'),
-        'nama_jabatan' => $this->input->post('nama_jabatan'),
+        'nama_tentor'         => $this->input->post('nama_tentor'),
+        'nama' => $this->input->post('nama'),
         'jam'          => $this->input->post('jam'),
         'bidang'       => $this->input->post('bidang')
       );
