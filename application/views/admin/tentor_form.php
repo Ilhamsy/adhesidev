@@ -40,8 +40,8 @@
             <th>Status</th>
             <td>
                 <select class="form-control" name="status" required>
-                    <option value=<?php echo ($status == 1) ? '1' : '0'; ?> <?php echo ($status == 1) ? 'selected' : ''; ?>>Active</option>
-                    <option value=<?php echo ($status == 0) ? '0' : '1'; ?> <?php echo ($status == 0) ? 'selected' : ''; ?>>Non Active</option>
+                    <option value="A">Active</option>
+                    <option value="NA">Non Active</option>
                 </select>
             </td>
         </tr>

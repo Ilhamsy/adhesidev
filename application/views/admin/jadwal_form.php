@@ -1,7 +1,7 @@
 <table class="table table-responsive">
     <form action="" method="POST">
         <tr>
-            <th>Mentor</th>
+            <th>Tentor</th>
             <td>
                 <select class="form-control" name="nama_tentor" required>
                     <?php foreach ($nama_tentor as $row) : ?>
@@ -11,7 +11,7 @@
             </td>
         </tr>
         <tr>
-            <th>Student</th>
+            <th>Siswa</th>
             <td>
                 <select class="form-control" name="nama" required>
                     <?php foreach ($nama as $row) : ?>

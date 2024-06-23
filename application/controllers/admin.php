@@ -523,15 +523,15 @@ class Admin extends CI_controller
     $x = array(
       'judul'          => 'Edit Jadwal Bimbingan',
       'aksi'          => 'edit',
-      'nama'          => $sql['nama'],
-      'nama_tentor'  => $sql['nama_tentor'],
+      'nama_tentor'          => $sql['nama_tentor'],
+      'nama'  => $sql['nama'],
       'jam'           => $sql['jam'],
       'bidang'        => $sql['bidang']
     );
     if (isset($_POST['kirim'])) {
       $inputData = array(
-        'nama'          => $this->input->post('nama'),
-        'nama_tentor'  => $this->input->post('nama_tentor'),
+        'nama_tentor'          => $this->input->post('nama_tentor'),
+        'nama'  => $this->input->post('nama'),
         'jam'           => $this->input->post('jam'),
         'bidang'        => $this->input->post('bidang')
       );
@@ -560,8 +560,8 @@ class Admin extends CI_controller
       $x = array(
         'judul'         => 'Edit Jadwal Bimbingan',
         'aksi'          => 'edit',
+        'nama_tentor'  => $this->m_admin->getName_mentor(),
         'nama'          => $this->m_admin->get_siswa_join_jadwal(),
-        'nama_jabatan'  => $this->m_admin->getName_mentor(),
         'jam'           => "",
         'bidang'        => "",
       );
