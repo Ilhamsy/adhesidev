@@ -44,4 +44,16 @@ class M_admin extends CI_model
     $this->db->group_by("siswa.id_siswa");
     return $query->get()->result_array();
   }
+  // jumlah siswa yang diampu oleh seorang tentor
+  public function get_jumlah_siswa()
+  {
+  }
+
+  public function get_nama_tentor_aktif()
+  {
+    $query = $this->db->select('nama_tentor');
+    $this->db->from('tentor');
+    $this->db->where('status' == "A");
+    return $query->get()->result_array();
+  }
 }

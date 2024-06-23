@@ -4,9 +4,11 @@
             <th>Tentor</th>
             <td>
                 <select class="form-control" name="nama_tentor" required>
-                    <?php foreach ($nama_tentor as $row) : ?>
-                        <option value="<?php echo $row['id_tentor']; ?>"><?php echo $row['nama_tentor']; ?></option>
-                    <?php endforeach; ?>
+                    <?php foreach ($nama_tentor as $row) :
+                        if ($row['status'] == "A") { ?>
+                            <option value="<?php echo $row['id_tentor']; ?>"><?php echo $row['nama_tentor']; ?></option>
+                    <?php }
+                    endforeach; ?>
                 </select>
             </td>
         </tr>
