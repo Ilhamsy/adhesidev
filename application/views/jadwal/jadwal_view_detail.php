@@ -23,8 +23,8 @@
 
                 <td>
                     <div id='isi4'>
-                        <a href="<?php echo base_url('admin/jadwal_edit/' . $admin['id_jadwal']); ?>" class="btn btn-info">Edit</a>
-                        <a href="<?php echo base_url('admin/jadwal_hapus/' . $admin['id_jadwal']); ?>" class="btn btn-danger">Hapus</a>
+                        <a href="<?php echo base_url('jadwal/jadwal_edit/' . $admin['id_jadwal']); ?>" class="btn btn-info">Edit</a>
+                        <a href="<?php echo base_url('jadwal/jadwal_hapus/' . $admin['id_jadwal']); ?>" class="btn btn-danger">Hapus</a>
                     </div>
                 </td>
             </tr>

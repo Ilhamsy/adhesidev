@@ -1,4 +1,4 @@
-<a href="<?php echo base_url('admin/siswa_tambah/'); ?>" class="btn btn-primary">Tambah</a>
+<a href="<?php echo base_url('siswa/siswa_tambah/'); ?>" class="btn btn-primary">Tambah</a>
 <br /><br /><br />
 <?php echo $this->session->flashdata('pesan'); ?>
 <table id="example1" class="table table-bordered table-striped">
@@ -36,8 +36,8 @@
                 <td><?php echo $admin['toefl']; ?></td>
                 <td><?php echo $admin['telepon']; ?></td>
                 <td>
-                    <a href="<?php echo base_url('admin/siswa_edit/' . $admin['id_siswa']); ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
-                    <a href="<?php echo base_url('admin/siswa_hapus/' . $admin['id_siswa']); ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                    <a href="<?php echo base_url('siswa/siswa_edit/' . $admin['id_siswa']); ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+                    <a href="<?php echo base_url('siswa/siswa_hapus/' . $admin['id_siswa']); ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                 </td>
             </tr>
         <?php $no++;

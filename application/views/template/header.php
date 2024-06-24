@@ -136,7 +136,7 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?= base_url('admin/tentor') ?>"><i class="fa fa-circle-o"></i>Data Tentor</a></li>
+                <li><a href="<?= base_url('tentor') ?>"><i class="fa fa-circle-o"></i>Data Tentor</a></li>
               </ul>
             </li>
 
@@ -148,22 +148,45 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?= base_url('admin/siswa') ?>" class="active"><i class="fa fa-circle-o"></i>Data Siswa</a></li>
+                <li><a href="<?= base_url('siswa') ?>" class="active"><i class="fa fa-circle-o"></i>Data Siswa</a></li>
               </ul>
             </li>
 
             <li class="treeview">
               <a href="">
-                <i class="fa fa-clock-o"></i> <span>Jadwal Bimbingan</span>
+                <i class="fa fa-calendar"></i> <span>Jadwal Bimbingan</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?= base_url('admin/jadwal') ?>" class="active"><i class="fa fa-circle-o"></i>Pilih Jadwal</a></li>
+                <li><a href="<?= base_url('jadwal') ?>" class="active"><i class="fa fa-circle-o"></i>Pilih Jadwal</a></li>
               </ul>
             </li>
 
+            <li class="treeview">
+              <a href="">
+                <i class="fa fa-clipboard"></i> <span>Kursus</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="<?= base_url('kursus') ?>" class="active"><i class="fa fa-circle-o"></i>Data Kursus</a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="">
+                <i class="fa fa-archive"></i> <span>Laporan</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="<?= base_url('laporan') ?>" class="active"><i class="fa fa-circle-o"></i>Rekap Laporan</a></li>
+              </ul>
+            </li>
           <?php } ?>
           <li class="header">END MAIN NAVIGATION</li>
         </ul>

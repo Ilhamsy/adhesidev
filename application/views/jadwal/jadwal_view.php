@@ -1,4 +1,4 @@
-<a href="<?php echo base_url('admin/jadwal_tambah/'); ?>" class="btn btn-primary">Tambah</a>
+<a href="<?php echo base_url('jadwal/jadwal_tambah/'); ?>" class="btn btn-primary">Tambah</a>
 <br /><br /><br />
 <?php echo $this->session->flashdata('pesan'); ?>
 <table id="example1" class="table table-bordered table-striped">
@@ -20,7 +20,7 @@
                 <td><?php echo $no; ?></td>
                 <td>
                     <div>
-                        <a href="<?php echo base_url('admin/jadwal_tentor/' . $admin['id_tentor']); ?>" class="btn btn-primary">
+                        <a href="<?php echo base_url('jadwal/jadwal_tentor/' . $admin['id_tentor']); ?>" class="btn btn-primary">
                             <?php echo $admin['nama_tentor']; ?>
                         </a>
                     </div>
@@ -43,8 +43,8 @@
 
                 <td>
                     <div id='isi4'>
-                        <a href="<?php echo base_url('admin/jadwal_edit/' . $admin['id_jadwal']); ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
-                        <a href="<?php echo base_url('admin/jadwal_hapus/' . $admin['id_jadwal']); ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                        <a href="<?php echo base_url('jadwal/jadwal_edit/' . $admin['id_jadwal']); ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+                        <a href="<?php echo base_url('jadwal/jadwal_hapus/' . $admin['id_jadwal']); ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                     </div>
                 </td>
             </tr>

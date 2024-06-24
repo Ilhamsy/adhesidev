@@ -28,7 +28,11 @@
         </tr>
         <tr>
             <th>Kursus Yang Diambil</th>
-            <td><input type="text" name="bidang" class="form-control" value="<?php echo $bidang; ?>" required></td>
+            <select class="form-control" name="bidang" required>
+                <?php foreach ($bidang as $row) : ?>
+                    <option value="<?php echo $row['id_kursus']; ?>"><?php echo $row['nama_kursus']; ?></option>
+                <?php endforeach; ?>
+            </select>
         </tr>
 
         <tr>
