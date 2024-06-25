@@ -10,6 +10,7 @@ class M_admin extends CI_model
     $this->db->from("jadwal");
     $this->db->join("siswa", "siswa.id_siswa = jadwal.id_sis");
     $this->db->join("tentor", "tentor.id_tentor = jadwal.id_tent");
+    $this->db->join("kursus", "kursus.id_kursus = jadwal.id_kur");
     $this->db->group_by("tentor.id_tentor");
 
     $jadwal = $this->db->get()->result_array();
@@ -23,6 +24,7 @@ class M_admin extends CI_model
     $this->db->from('jadwal');
     $this->db->join("siswa", "siswa.id_siswa = jadwal.id_sis");
     $this->db->join("tentor", "tentor.id_tentor = jadwal.id_tent");
+    $this->db->join("kursus", "kursus.id_kursus = jadwal.id_kur");
     $this->db->where("tentor.id_tentor", $id_tentor);
 
     $jadwal_mentor = $this->db->get()->result_array();
@@ -42,6 +44,14 @@ class M_admin extends CI_model
     $query = $this->db->from('jadwal');
     $this->db->join("siswa", "siswa.id_siswa = jadwal.id_sis", 'right');
     $this->db->group_by("siswa.id_siswa");
+    return $query->get()->result_array();
+  }
+
+  public function get_kursus()
+  {
+    $query = $this->db->from('jadwal');
+    $this->db->join("kursus", "kursus.id_kursus = jadwal.id_kur", 'right');
+    $this->db->group_by("kursus.id_kursus");
     return $query->get()->result_array();
   }
 }

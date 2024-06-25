@@ -37,7 +37,7 @@
                 <td><?php echo $admin['telepon']; ?></td>
                 <td>
                     <a href="<?php echo base_url('siswa/siswa_edit/' . $admin['id_siswa']); ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
-                    <a href="<?php echo base_url('siswa/siswa_hapus/' . $admin['id_siswa']); ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;<a href="<?php echo base_url('siswa/siswa_hapus/' . $admin['id_siswa']); ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                 </td>
             </tr>
         <?php $no++;

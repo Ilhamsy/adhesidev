@@ -4,12 +4,11 @@
             <th>Tentor</th>
             <td>
                 <select class="form-control" name="nama_tentor" required>
-                    <?php foreach ($nama_tentor as $row) :
-                        if ($row['status'] == "A") { ?>
-                            <option value="<?php echo $row['id_tentor']; ?>"><?php echo $row['nama_tentor']; ?></option>
-                    <?php }
-                    endforeach; ?>
+                    <?php foreach ($nama_tentor as $row) : ?>
+                        <option value="<?php echo $row['id_tentor']; ?>" <?php echo ($row['id_tentor'] == $nama_tentor) ? 'elected' : ''; ?>><?php echo $row['nama_tentor']; ?></option>
+                    <?php endforeach; ?>
                 </select>
+
             </td>
         </tr>
         <tr>
@@ -23,21 +22,24 @@
             </td>
         </tr>
         <tr>
-            <th>Jadwal Bimbingan</th>
-            <td><input type="datetime-local" name="jam" class="form-control" value="<?php echo $jam; ?>" required></td>
-        </tr>
-        <tr>
             <th>Kursus Yang Diambil</th>
-            <select class="form-control" name="bidang" required>
-                <?php foreach ($bidang as $row) : ?>
-                    <option value="<?php echo $row['id_kursus']; ?>"><?php echo $row['nama_kursus']; ?></option>
-                <?php endforeach; ?>
-            </select>
+            <td>
+                <select class="form-control" name="nama_kursus" required>
+                    <?php foreach ($nama_kursus as $row) : ?>
+                        <option value="<?php echo $row['id_kursus']; ?>"><?php echo $row['nama_kursus']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
         </tr>
-
+        <?php
+        $url = isset($_SERVER['HTTP_REFERER']) ? htmlspecialchars($_SERVER['HTTP_REFERER']) : '';
+        ?>
         <tr>
             <td></td>
-            <th><input type="submit" name="kirim" value="Submit" class="btn btn-primary"></th>
+            <th>
+                <input type="submit" name="kirim" value="Submit" class="btn btn-primary">
+                &nbsp;&nbsp;<a href="<?php echo $url ?>" class="btn btn-danger">Batal</a>
+            </th>
         </tr>
     </form>
 </table>

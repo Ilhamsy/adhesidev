@@ -45,10 +45,14 @@
                 </select>
             </td>
         </tr>
+        <?php
+        $url = isset($_SERVER['HTTP_REFERER']) ? htmlspecialchars($_SERVER['HTTP_REFERER']) : '';
+        ?>
         <tr>
             <td></td>
             <th>
                 <input type="submit" name="kirim" value="Submit" class="btn btn-primary">
+                &nbsp;&nbsp;<a href="<?php echo $url ?>" class="btn btn-danger">Batal</a>
             </th>
         </tr>
     </form>

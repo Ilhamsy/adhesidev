@@ -154,18 +154,6 @@
 
             <li class="treeview">
               <a href="">
-                <i class="fa fa-calendar"></i> <span>Jadwal Bimbingan</span>
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="<?= base_url('jadwal') ?>" class="active"><i class="fa fa-circle-o"></i>Pilih Jadwal</a></li>
-              </ul>
-            </li>
-
-            <li class="treeview">
-              <a href="">
                 <i class="fa fa-clipboard"></i> <span>Kursus</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
@@ -173,6 +161,18 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="<?= base_url('kursus') ?>" class="active"><i class="fa fa-circle-o"></i>Data Kursus</a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="">
+                <i class="fa fa-calendar"></i> <span>Jadwal Bimbingan</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="<?= base_url('jadwal') ?>" class="active"><i class="fa fa-circle-o"></i>Pilih Jadwal</a></li>
               </ul>
             </li>
 

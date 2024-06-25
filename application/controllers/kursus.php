@@ -78,7 +78,7 @@ class Kursus extends CI_Controller
         }
     }
 
-    public function tentor_hapus($id = '')
+    public function kursus_hapus($id = '')
     {
         $cek = $this->db->delete('kursus', array('id_kursus' => $id));
         if ($cek) {
