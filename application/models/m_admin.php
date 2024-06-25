@@ -54,4 +54,15 @@ class M_admin extends CI_model
     $this->db->group_by("kursus.id_kursus");
     return $query->get()->result_array();
   }
+
+  public function get_tentor()
+  {
+    $query = $this->db->select("*")->from('tentor');
+    return $query->get()->result_array();
+  }
+  public function get_siswa()
+  {
+    $query = $this->db->select("*")->from('siswa');
+    return $query->get()->result_array();
+  }
 }
