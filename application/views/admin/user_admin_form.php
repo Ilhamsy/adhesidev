@@ -6,7 +6,7 @@
     </tr>
     <tr>
       <th>Password</th>
-      <td><input type="password" name="password" class="form-control" value="" required=""></td>
+      <td><input type="password" name="password" class="form-control" value="" placeholder="password baru" required=""></td>
     </tr>
     <tr>
       <th>Nama</th>
@@ -24,8 +24,8 @@
     <tr>
       <td></td>
       <td>
-        <input type="submit" name="kirim" value="Entri Data" class="btn btn-primary">&nbsp;&nbsp;&nbsp;
-        <input type="reset" name="" value="Batal" class="btn btn-reset">
+        <a href="<?php echo base_url('admin/user_admin_edit'); ?>" class="btn btn-info">Simpan</a>
+        <a href="<?php echo base_url('admin'); ?>" class="btn btn-danger">Batal</a>
       </td>
     </tr>
   </table>

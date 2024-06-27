@@ -117,7 +117,7 @@ class Admin extends CI_controller
                Data Berhasil Di Edit.
               </div>';
         $this->session->set_flashdata('pesan', $pesan);
-        redirect(base_url('admin/user_admin'));
+        redirect(base_url('admin/dashboard'));
       } else {
         buat_alert('SYSTEM ERROR');
       }
@@ -177,10 +177,6 @@ class Admin extends CI_controller
       );
       tpl('admin/ubah_password', $x);
     }
-  }
-
-  public function count_siswa()
-  {
   }
 
   public function keluar($value = '')

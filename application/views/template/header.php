@@ -89,7 +89,7 @@
 
                 <li class="user-footer">
                   <div class="pull-left">
-                    <a href="<?= base_url('admin/profil') ?>" class="btn btn-default btn-flat">Profile</a>
+                    <a href="<?= base_url('admin/user_admin') ?>" class="btn btn-default btn-flat">Profile</a>
                   </div>
                   <div class="pull-right">
                     <a href="<?= base_url('admin/keluar') ?>" onclick="return(confirm('Anda Akan Keluar Dari Halaman Administrator'))" class="btn btn-default btn-flat">Sign out</a>

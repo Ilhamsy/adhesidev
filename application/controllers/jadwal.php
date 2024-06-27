@@ -33,7 +33,7 @@ class Jadwal extends CI_Controller
             $inputData = array(
                 'nama_tentor'         => $this->input->post('nama_tentor'),
                 'nama' => $this->input->post('nama'),
-                'nama_kursus'       => $this->input->post('bidang')
+                'nama_kursus'       => $this->input->post('nama_kursus')
             );
 
             $siswa = $this->db->get_where('siswa', array('id_siswa' => $inputData["nama"]))->row();
@@ -59,8 +59,8 @@ class Jadwal extends CI_Controller
             $x = array(
                 'judul'          => 'Tambah Jadwal Bimbingan',
                 'aksi'          => 'tambah',
-                'nama'          => $this->m_admin->get_siswa_join_jadwal(),
-                'nama_tentor'  => $this->m_admin->getName_mentor(),
+                'nama_tentor'  => $this->m_admin->get_tentor(),
+                'nama'          => $this->m_admin->get_siswa(),
                 'nama_kursus'        => $this->m_admin->get_kursus()
             );
             tpl('jadwal/jadwal_view_form', $x);
@@ -130,9 +130,9 @@ class Jadwal extends CI_Controller
             $x = array(
                 'judul'         => 'Edit Jadwal Bimbingan',
                 'aksi'          => 'edit',
-                'nama_tentor'  => $sql['nama_tentor'],
-                'nama'          => $sql['nama'],
-                'nama_kursus'        => $sql['nama_kursus'],
+                'nama_tentor'  => $this->m_admin->get_tentor(),
+                'nama'          => $this->m_admin->get_siswa(),
+                'nama_kursus'        => $this->m_admin->get_kursus()
             );
             tpl('jadwal/jadwal_view_form', $x);
         }

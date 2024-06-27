@@ -1,8 +1,4 @@
-<a href="<?php echo base_url('admin/user_admin_tambah/');?>" class="btn btn-primary">Tambah Hak Akses</a>
-
-<br /><br /><br />
-
-<?php echo $this->session->flashdata('pesan');?>
+<?php echo $this->session->flashdata('pesan'); ?>
 
 <table id="example1" class="table table-bordered table-striped">
     <thead>
@@ -16,18 +12,19 @@
         </tr>
     </thead>
     <tbody>
-        <?php $no = 1; foreach ($data->result_array() as $admin) :?>
+        <?php $no = 1;
+        foreach ($data->result_array() as $admin) : ?>
             <tr>
-                <td><?php echo $no;?></td>
-                <td><?php echo $admin['username'];?></td>
-                <td><?php echo $admin['nama'];?></td>
-                <td><?php echo ucfirst($admin['level']);?></td>
-                <td><?php echo $admin['log'];?></td>
+                <td><?php echo $no; ?></td>
+                <td><?php echo $admin['username']; ?></td>
+                <td><?php echo $admin['nama']; ?></td>
+                <td><?php echo ucfirst($admin['level']); ?></td>
+                <td><?php echo $admin['log']; ?></td>
                 <td>
-                    <a href="<?php echo base_url('admin/user_admin_edit/'. $admin['id_admin']);?>" class="btn btn-info">Edit</a>
-                    <a href="<?php echo base_url('admin/user_admin_hapus/'. $admin['id_admin']);?>" class="btn btn-danger">Hapus</a>
+                    <a href="<?php echo base_url('admin/user_admin_edit/' . $admin['id_admin']); ?>" class="btn btn-info">Edit</a>
                 </td>
             </tr>
-            <?php $no++; endforeach;?>
+        <?php $no++;
+        endforeach; ?>
     </tbody>
 </table>
