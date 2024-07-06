@@ -6,6 +6,7 @@ class Laporan extends CI_Controller
     {
         parent::__construct();
         $this->load->model('m_admin');
+        $this->load->library('pdf');
     }
 
     public function index()
@@ -39,21 +40,133 @@ class Laporan extends CI_Controller
     private function print_tentor_data()
     {
         $data['tentor'] = $this->m_admin->get_tentor();
-        $this->load->view('laporan/laporan_print_tentor', $data);
+        $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+        // set document information
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Adhesidev Academy');
+        $pdf->SetTitle('Cetak Laporan Tentor');
+        $pdf->SetSubject('TCPDF Tutorial');
+        $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+
+        $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING, array(0, 64, 255), array(0, 64, 128));
+        $pdf->setFooterData(array(0, 64, 0), array(0, 64, 128));
+
+        $pdf->setHeaderFont(array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+        $pdf->setFooterFont(array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+
+        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+        $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+        // Set auto page breaks
+        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+
+        // Set font
+        $pdf->setFont('helvetica', '', 12);
+        $pdf->AddPage();
+        $html = $this->load->view('laporan/laporan_print_tentor', $data, true);
+        $pdf->writeHTML($html, true, false, false, false, '');
+        $pdf->Output('Laporan Tentor.pdf', 'I');
     }
     private function print_siswa_data()
     {
         $data['siswa'] = $this->m_admin->get_siswa();
-        $this->load->view('laporan/laporan_print_siswa', $data);
+        $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Adhesidev Academy');
+        $pdf->SetTitle('Cetak Laporan Siswa');
+        $pdf->SetSubject('TCPDF Tutorial');
+        $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+
+        $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING, array(0, 64, 255), array(0, 64, 128));
+        $pdf->setFooterData(array(0, 64, 0), array(0, 64, 128));
+
+        $pdf->setHeaderFont(array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+        $pdf->setFooterFont(array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+
+        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+        $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+        // Set auto page breaks
+        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+        $pdf->setFont('helvetica', '', 12);
+        $pdf->AddPage();
+        $html = $this->load->view('laporan/laporan_print_siswa', $data, true);
+        $pdf->writeHTML($html, true, false, false, false, '');
+        $pdf->Output('Laporan Siswa.pdf', 'I');
     }
     private function print_kursus_data()
     {
         $data['kursus'] = $this->m_admin->get_kursus();
-        $this->load->view('laporan/laporan_print_kursus', $data);
+        $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Adhesidev Academy');
+        $pdf->SetTitle('Cetak Laporan Kursus');
+        $pdf->SetSubject('TCPDF Tutorial');
+        $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+
+        $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING, array(0, 64, 255), array(0, 64, 128));
+        $pdf->setFooterData(array(0, 64, 0), array(0, 64, 128));
+
+        $pdf->setHeaderFont(array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+        $pdf->setFooterFont(array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+
+        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+        $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+        // Set auto page breaks
+        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+        $pdf->setFont('helvetica', '', 12);
+        $pdf->AddPage();
+        $html = $this->load->view('laporan/laporan_print_kursus', $data, true);
+        $pdf->writeHTML($html, true, false, false, false, '');
+        $pdf->Output('Laporan kursus.pdf', 'I');
     }
     private function print_jadwal_data()
     {
-        $data['jadwal'] = $this->m_admin->jadwal();
-        $this->load->view('laporan/laporan_print_jadwal', $data);
+        $data['jadwal'] = $this->m_admin->get_jadwal();
+        $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Adhesidev Academy');
+        $pdf->SetTitle('Cetak Laporan Jadwal');
+        $pdf->SetSubject('TCPDF Tutorial');
+        $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+
+        $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING, array(0, 64, 255), array(0, 64, 128));
+        $pdf->setFooterData(array(0, 64, 0), array(0, 64, 128));
+
+        $pdf->setHeaderFont(array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+        $pdf->setFooterFont(array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+
+        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+        $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+        // Set auto page breaks
+        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+        $pdf->setFont('helvetica', '', 12);
+        $pdf->AddPage();
+        $html = $this->load->view('laporan/laporan_print_jadwal', $data, true);
+        $pdf->writeHTML($html, true, false, false, false, '');
+        $pdf->Output('Laporan Jadwal.pdf', 'I');
     }
 }

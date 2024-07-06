@@ -1,38 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cetak Data Kursus</title>
-</head>
-
-<body>
-    <table id="example1" class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Kursus</th>
-                <th>Kapasitas Kelas</th>
-                <th>Waktu</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php $no = 1;
-            foreach ($kursus as $admin) : ?>
-                <tr>
-                    <td><?php echo $no; ?></td>
-                    <td><?php echo $admin['nama_kursus']; ?></td>
-                    <td><?php echo $admin['kapasitas']; ?></td>
-                    <td><?php echo $admin['waktu']; ?></td>
-                </tr>
-            <?php $no++;
-            endforeach; ?>
-        </tbody>
-    </table>
-    <script type="text/javascript">
-        window.print();
-    </script>
-</body>
-
-</html>
+<h4 style="text-align: center;">Daftar Kursus</h4>
+<table style="border:1px solid #000; padding:6px;">
+    <tr style="background-color: aqua; text-align:center">
+        <th style="border:1px solid #000; padding:6px;">No.</th>
+        <th style="border:1px solid #000; padding:6px;">Nama Kursus</th>
+        <th style="border:1px solid #000; padding:6px;">Kapasitas</th>
+        <th style="border:1px solid #000; padding:6px;">Waktu</th>
+    </tr>
+    <?php $i = 1;
+    foreach ($kursus as $s) : ?>
+        <tr>
+            <td style="border:1px solid #000; padding:6px;"><?php echo $i; ?></td>
+            <td style="border:1px solid #000; padding:6px;"><?php echo $s['nama_kursus']; ?></td>
+            <td style="border:1px solid #000; padding:6px;"><?php echo $s['kapasitas']; ?></td>
+            <td style="border:1px solid #000; padding:6px;"><?php echo $s['waktu']; ?></td>
+        </tr>
+    <?php $i++;
+    endforeach; ?>
+</table>
