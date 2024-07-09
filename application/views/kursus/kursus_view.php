@@ -1,7 +1,7 @@
 <a href="<?php echo base_url('kursus/kursus_tambah/'); ?>" class="btn btn-primary">Tambah</a>
 <br /><br /><br />
 <?php echo $this->session->flashdata('pesan'); ?>
-<table id="example1" class="table table-bordered table-striped">
+<table class="table table-bordered table-hover table-responsive-sm">
     <thead>
         <tr>
             <th>No</th>

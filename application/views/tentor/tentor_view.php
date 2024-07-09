@@ -7,7 +7,7 @@
             <th>No</th>
             <th>Nama</th>
             <th>Email</th>
-            <th>Alamat Domisili</th>
+            <!-- <th>Alamat Domisili</th> -->
             <th>Jumlah Student</th>
             <th>No Telepon</th>
             <th>Bidang Ahli</th>
@@ -22,7 +22,7 @@
                 <td><?php echo $no; ?></td>
                 <td><?php echo $admin['nama_tentor']; ?></td>
                 <td><?php echo $admin['email']; ?></td>
-                <td><?php echo $admin['alamat']; ?></td>
+                <!-- <td><?php echo $admin['alamat']; ?></td> -->
                 <td><?php echo $admin['jml_siswa']; ?></td>
                 <td><?php echo $admin['telepon']; ?></td>
                 <td><?php echo $admin['bidang']; ?></td>
